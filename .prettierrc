@@ -1,9 +1,12 @@
 {
+	"plugins": ["@prettier/plugin-pug"],
 	"printWidth": 120,
 	"useTabs": true,
 	"tabWidth": 2,
 	"bracketSameLine": true,
 	"arrowParens": "avoid",
 	"singleAttributePerLine": true,
-	"pugBracketSpacing": true
+	"pugFramework": "vue",
+	"pugBracketSpacing": true,
+	"pugWrapAttributesThreshold": 1
 }

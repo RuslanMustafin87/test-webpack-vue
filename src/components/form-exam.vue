@@ -84,6 +84,7 @@ input.radio(
 	v-model="blColor",
 	value="blue")
 .bl-color(:style="{ background: blColor }")
+input(@input="console.log($event.target.value)")
 </template>
 
 <style lang="scss">

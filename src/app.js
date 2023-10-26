@@ -2,13 +2,29 @@ import { createApp } from "vue/dist/vue.esm-bundler";
 // import './css/style.css';
 import App from "./App.vue";
 
-const foo = createApp(App);
+const app = createApp(App);
 
-foo.component("my-com", {
+app.component("my-com", {
 	data() {
 		return { x: "hello" };
 	},
 	template: `<span> {{ x }} </span>`,
 });
 
-const vm = foo.mount("#app");
+app.component("custom-input", {
+	props: ["modelValue"],
+	emits: ["update:model2Value"],
+	methods: {
+		foo() {
+			this.$emit("update:modelValue", event.target.value);
+		},
+	},
+	template: `
+	  <input
+		:value="modelValue"
+		@input="foo"
+	  />
+	  <div>{{ modelValue }}</div>`,
+});
+
+const vm = app.mount("#app");

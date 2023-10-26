@@ -6,6 +6,7 @@
 		"node": true
 	},
 	"extends": ["plugin:vue/vue3-essential", "eslint:recommended", "plugin:prettier/recommended"],
+	"parser": "vue-eslint-parser",
 	"parserOptions": {
 		"ecmaVersion": 9,
 		"sourceType": "module",
@@ -19,6 +20,7 @@
 		"prefer-destructuring": "warn",
 		"prefer-object-spread": "warn",
 		"operator-assignment": "error",
-		"no-var": "error"
+		"no-var": "error",
+		"prettier/prettier": ["error", { "endOfLine": "auto" }]
 	}
 }

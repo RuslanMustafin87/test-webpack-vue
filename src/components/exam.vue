@@ -8,7 +8,7 @@ export default {
 	props: ["der"],
 	methods: {
 		foo() {
-			this.isActive = true;
+			this.isActive = this.isActive ? false : true;
 		},
 	},
 };
@@ -18,8 +18,8 @@ export default {
 p {{ der }}
 button.huj(
 	@click.ctrl="foo",
-	:class="{ red: isActive }")
-
+	:style="{ backgroundColor: isActive ? 'red' : 'aqua' }")
+	//- :class="{ red: isActive }")
 </template>
 
 <style lang="scss">

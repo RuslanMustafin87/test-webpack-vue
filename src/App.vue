@@ -1,12 +1,13 @@
 <!-- eslint-disable prettier/prettier -->
 <script>
 import exam from "./components/exam.vue";
-import formExample from "./components/form.vue";
+import formExample from "./components/form-exam.vue";
 export default {
 	name: "App",
 	data() {
 		return {
 			jik: 0,
+			str: "hello!",
 			isCl: false,
 			isBlShow: false,
 			arr: ['apple', 'orange', 'banana']
@@ -51,6 +52,7 @@ exam(
 	:der="item")
 br
 formExample
+custom-input(v-model="str")
 </template>
 
 <style lang="scss">

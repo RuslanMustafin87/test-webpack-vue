@@ -1,7 +1,7 @@
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
-// const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
 
 const PATHS = {
@@ -60,32 +60,32 @@ module.exports = {
 		}),
 		new VueLoaderPlugin(),
 		new FriendlyErrorsWebpackPlugin(),
-		// new FaviconsWebpackPlugin({
-		// 	logo: `${PATHS.source}/images/icons/brand.svg`,
-		// 	publicPath: "assets/favicons/",
-		// 	outputPath: "assets/favicons/",
-		// 	prefix: "",
-		// 	favicons: {
-		// 		appName: "Local business",
-		// 		start_url: "/",
-		// 		display: "standalone",
-		// 		orientation: "any",
-		// 		background: "#fff",
-		// 		theme_color: "#719dca",
-		// 		icons: {
-		// 			android: [
-		// 				"android-chrome-16x16.png",
-		// 				"android-chrome-32x32.png",
-		// 				"android-chrome-192x192.png",
-		// 				"android-chrome-512x512.png",
-		// 			],
-		// 			favicons: ["favicon-16x16.png", "favicon-32x32.png"],
-		// 			appleIcon: ["apple-touch-icon-180x180.png", "apple-touch-icon-precomposed.png", "apple-touch-icon.png"],
-		// 			appleStartup: false,
-		// 			windows: false,
-		// 			yandex: false,
-		// 		},
-		// 	},
-		// }),
+		new FaviconsWebpackPlugin({
+			logo: `${PATHS.source}/images/icons/vue.svg`,
+			publicPath: "assets/favicons/",
+			outputPath: "assets/favicons/",
+			prefix: "",
+			favicons: {
+				appName: "Local business",
+				start_url: "/",
+				display: "standalone",
+				orientation: "any",
+				background: "#fff",
+				theme_color: "#719dca",
+				icons: {
+					android: [
+						"android-chrome-16x16.png",
+						"android-chrome-32x32.png",
+						"android-chrome-192x192.png",
+						"android-chrome-512x512.png",
+					],
+					favicons: ["favicon-16x16.png", "favicon-32x32.png"],
+					appleIcon: ["apple-touch-icon-180x180.png", "apple-touch-icon-precomposed.png", "apple-touch-icon.png"],
+					appleStartup: false,
+					windows: false,
+					yandex: false,
+				},
+			},
+		}),
 	],
 };

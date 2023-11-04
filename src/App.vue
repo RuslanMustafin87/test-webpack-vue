@@ -1,7 +1,8 @@
 <!-- eslint-disable prettier/prettier -->
 <script>
 import exam from "./components/exam.vue";
-import formExample from "./components/form-exam.vue";
+import formExample from "./components/exam-form.vue";
+import examTabs from "./components/exam-tabs.vue";
 export default {
 	name: "App",
 	data() {
@@ -10,10 +11,11 @@ export default {
 			str: "hello!",
 			isCl: false,
 			isBlShow: false,
-			arr: ['apple', 'orange', 'banana']
+			arr: ['apple', 'orange', 'banana'],
+			red: true
 		};
 	},
-	components: {exam, formExample},
+	components: {exam, formExample, examTabs },
 	methods: {
 		foo() {
 			this.jik += 1;
@@ -46,16 +48,19 @@ ul
 	li(
 		v-for="item of arr",
 		:key="item.id") {{ item }}
-.g(:class="red ? 'red' : 'green'")
 exam(
 	v-for="item of arr",
 	:der="item")
 br
 formExample
 custom-input(v-model="str")
+examTabs
 </template>
 
 <style lang="scss">
+* {
+	box-sizing: border-box;
+}
 .clr {
 	font-weight: bold;
 }
@@ -66,11 +71,5 @@ custom-input(v-model="str")
 	width: 100px;
 	height: 100px;
 	background: aqua;
-}
-.red {
-	color: red;
-}
-.green {
-	color: green;
 }
 </style>

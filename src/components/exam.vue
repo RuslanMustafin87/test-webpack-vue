@@ -1,10 +1,17 @@
 <script>
+import ExamProps from "./exam-props.vue";
+
 export default {
 	data() {
 		return {
 			isActive: false,
+			obj: {
+				id: 43,
+				title: "Vegetables",
+			},
 		};
 	},
+	components: { ExamProps },
 	props: ["der"],
 	methods: {
 		foo() {
@@ -20,6 +27,7 @@ button.huj(
 	@click.ctrl="foo",
 	:style="{ backgroundColor: isActive ? 'red' : 'aqua' }")
 	//- :class="{ red: isActive }")
+ExamProps(v-bind="obj")
 </template>
 
 <style lang="scss">

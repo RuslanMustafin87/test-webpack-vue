@@ -16,6 +16,8 @@
 	"license": "ISC",
 	"dependencies": {
 		"@babel/runtime": "^7.20.6",
+		"normalize-scss": "^7.0.1",
+		"normalize.css": "^8.0.1",
 		"vue": "^3.3.6"
 	},
 	"devDependencies": {

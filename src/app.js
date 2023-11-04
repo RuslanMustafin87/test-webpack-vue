@@ -1,6 +1,7 @@
 import { createApp } from "vue/dist/vue.esm-bundler";
-// import './css/style.css';
+import "./scss/style.scss";
 import App from "./App.vue";
+// import "normalize.css";
 
 const app = createApp(App);
 

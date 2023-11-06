@@ -14,6 +14,7 @@ export default {
 </script>
 <template lang="pug">
 .tabs
+	h2.tabs__title Example tabs
 	.tabs__left
 		.tabs__item(
 			v-for="tab in tabs",

@@ -30,64 +30,67 @@ export default {
 </script>
 
 <template lang="pug">
-input(
-	type="text",
-	v-model.lazy.number="word")
-.word {{ word }}
-textarea(
-	name="text",
-	v-model="text",
-	cols="30",
-	rows="10")
-.text(style="white-space: pre-wrap") {{ text }}
-input#ch(
-	type="checkbox",
-	name="check",
-	v-model="check")
-label(for="ch") {{ tmp }}
-br
-input#ch2(
-	type="checkbox",
-	name="check2",
-	v-model="check2",
-	:true-value="yes",
-	:false-value="no")
-label(for="ch2") {{ check2 }}
-br
-input(
-	type="radio",
-	v-model="pick",
-	:value="a")
-input(
-	type="radio",
-	v-model="pick",
-	:value="b")
-.radio {{ pick }}
-br
-select(v-model="selected")
-	option(:value="op1") 123
-	option(:value="op2") 456
-	//- option(:value="{ number: 123 }") 123
-	//- option(:value="{ number: 456 }") 456
-.select {{ selected }}
-br
-.h
-	input#f.ch(type="checkbox")
-	label.bt(for="f")
-br
-input.radio(
-	type="radio",
-	v-model="blColor",
-	value="red")
-input.radio(
-	type="radio",
-	v-model="blColor",
-	value="blue")
-.bl-color(:style="{ background: blColor }")
-input(@input="console.log($event.target.value)")
+.form
+	h2 Example form
+	input(
+		type="text",
+		v-model.lazy.number.trim="word")
+	.word {{ word }}
+	textarea(
+		name="text",
+		v-model="text",
+		cols="30",
+		rows="10")
+	.text(style="white-space: pre-wrap") {{ text }}
+	input#ch(
+		type="checkbox",
+		name="check",
+		v-model="check")
+	label(for="ch") {{ tmp }}
+	br
+	input#ch2(
+		type="checkbox",
+		name="check2",
+		v-model="check2",
+		:true-value="yes",
+		:false-value="no")
+	label(for="ch2") {{ check2 }}
+	br
+	input(
+		type="radio",
+		v-model="pick",
+		:value="a")
+	input(
+		type="radio",
+		v-model="pick",
+		:value="b")
+	.radio {{ pick }}
+	br
+	select(v-model="selected")
+		option(:value="op1") 123
+		option(:value="op2") 456
+	.select {{ selected }}
+	br
+	.h
+		input#f.ch(type="checkbox")
+		label.bt(for="f")
+	br
+	input.radio(
+		type="radio",
+		v-model="blColor",
+		value="red")
+	input.radio(
+		type="radio",
+		v-model="blColor",
+		value="blue")
+	.bl-color(:style="{ background: blColor }")
+	input(@input="console.log($event.target.value)")
 </template>
 
 <style lang="scss">
+.form {
+	border: 2px solid black;
+}
 .text {
 	width: 200px;
 	height: 100px;

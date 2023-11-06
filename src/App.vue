@@ -1,8 +1,12 @@
 <!-- eslint-disable prettier/prettier -->
 <script>
-import exam from "./components/exam.vue";
-import formExample from "./components/exam-form.vue";
+import examProps from "./components/exam-props.vue";
+import examEvents from "./components/exam-events.vue";
+import examForm from "./components/exam-form.vue";
+import examCustomInput from "./components/exam-custom-input.vue";
 import examTabs from "./components/exam-tabs.vue";
+import examAttrs from "./components/exam-attrs.vue";
+import examCustomEvents from "./components/exam-custom-events.vue";
 export default {
 	name: "App",
 	data() {
@@ -11,11 +15,18 @@ export default {
 			str: "hello!",
 			isCl: false,
 			isBlShow: false,
-			arr: ['apple', 'orange', 'banana'],
-			red: true
+			fruit: "apple",
+			arr: ["apple", "orange", "banana"],
+			red: true,
+			prop: "props",
+			num: 0,
+			obj: {
+				id: 43,
+				title: "Vegetables",
+			},
 		};
 	},
-	components: {exam, formExample, examTabs },
+	components: { examEvents, examProps, examForm, examCustomInput, examTabs, examAttrs, examCustomEvents },
 	methods: {
 		foo() {
 			this.jik += 1;
@@ -43,18 +54,29 @@ button(
 p {{ jik }}
 p(:class="[{ cl: isCl }, 'clr']") {{ kij }}
 .bl(v-show="isBlShow")
-my-com
 ul
 	li(
 		v-for="item of arr",
 		:key="item.id") {{ item }}
-exam(
+my-com(
 	v-for="item of arr",
 	:der="item")
 br
-formExample
-custom-input(v-model="str")
+examProps(
+	prop="Example",
+	:propA="prop",
+	propD="dd",
+	v-bind="obj")
+examEvents
+examForm
+examCustomInput(v-model="fruit")
 examTabs
+examAttrs#examAttrs(
+	@click="console.log('hi')",
+	title="hi",
+	style="color: green")
+examCustomEvents(@my-ev="num += $event")
+p {{ num }}
 </template>
 
 <style lang="scss">

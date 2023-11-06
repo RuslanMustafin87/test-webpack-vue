@@ -9,23 +9,8 @@ app.component("my-com", {
 	data() {
 		return { x: "hello" };
 	},
-	template: `<span> {{ x }} </span>`,
-});
-
-app.component("custom-input", {
-	props: ["modelValue"],
-	emits: ["update:model2Value"],
-	methods: {
-		foo() {
-			this.$emit("update:modelValue", event.target.value);
-		},
-	},
-	template: `
-	  <input
-		:value="modelValue"
-		@input="foo"
-	  />
-	  <div>{{ modelValue }}</div>`,
+	props: ["der"],
+	template: `<span> {{ der }} </span>`,
 });
 
 const vm = app.mount("#app");

@@ -1,7 +1,7 @@
 <script>
 export default {
 	props: ["modelValue"],
-	emits: ["update:model2Value"],
+	emits: ["update:modelValue"],
 	methods: {
 		foo(event) {
 			this.$emit("update:modelValue", event.target.value);

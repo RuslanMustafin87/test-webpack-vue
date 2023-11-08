@@ -7,6 +7,7 @@ import examCustomInput from "./components/exam-custom-input.vue";
 import examTabs from "./components/exam-tabs.vue";
 import examAttrs from "./components/exam-attrs.vue";
 import examCustomEvents from "./components/exam-custom-events.vue";
+import examSlots from "./components/exam-slots.vue";
 export default {
 	name: "App",
 	data() {
@@ -16,6 +17,7 @@ export default {
 			isCl: false,
 			isBlShow: false,
 			fruit: "apple",
+			vegetable: "potato",
 			arr: ["apple", "orange", "banana"],
 			red: true,
 			prop: "props",
@@ -26,7 +28,7 @@ export default {
 			},
 		};
 	},
-	components: { examEvents, examProps, examForm, examCustomInput, examTabs, examAttrs, examCustomEvents },
+	components: { examEvents, examProps, examForm, examCustomInput, examTabs, examAttrs, examCustomEvents, examSlots },
 	methods: {
 		foo() {
 			this.jik += 1;
@@ -69,14 +71,29 @@ examProps(
 	v-bind="obj")
 examEvents
 examForm
-examCustomInput(v-model="fruit")
+examCustomInput(v-model="str")
 examTabs
 examAttrs#examAttrs(
 	@click="console.log('hi')",
 	title="hi",
 	style="color: green")
-examCustomEvents(@my-ev="num += $event")
+examCustomEvents(
+	@my-ev="num += $event",
+	v-model="fruit",
+	v-model:food.lowercase="vegetable")
 p {{ num }}
+p {{ fruit }}
+p {{ vegetable }}
+examSlots
+	template(v-slot:title) Example slots
+	template(v-slot:default)
+		button Save
+	template(v-slot:itemList="slotProps")
+		span {{ slotProps.index }} {{ slotProps.item }}
+	template(#example="{ color }")
+		p {{ color }}
+examSlots(v-slot="{ color }")
+	p {{ color }}
 </template>
 
 <style lang="scss">
